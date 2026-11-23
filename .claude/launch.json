@@ -1,0 +1,6 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    { "name": "niris-preview", "runtimeExecutable": "npx", "runtimeArgs": ["--yes", "serve", "out", "-l", "4173"], "port": 4173 }
+  ]
+}
