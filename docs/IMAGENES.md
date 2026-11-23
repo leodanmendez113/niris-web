@@ -10,12 +10,13 @@ Página de cada foto: `https://unsplash.com/photos/<id>` · archivo original: `h
 | `hotel-housekeeping.webp` | Servicio hoteles | `photo-1573014196346-87ac0314faf5` |
 | `office-cleaning.webp` | Servicio oficinas | `photo-1497366754035-f200968a6e72` |
 | `home-cleaning.webp` | Servicio casas | `photo-1649083048391-1c9e82472f65` |
-| `deyanires.webp`, `deyanires-sm.webp` | **Foto PROVISIONAL** de la dueña | `photo-1586391975091-40b8eb04bfc7` |
+| `deyanires.webp`, `deyanires-sm.webp` | Retrato de Deyanires con traje (entregado por Leo el 2026-11-22) | original en `scripts/originales/deyanires.webp` |
 
-## Reemplazar la foto de Deyanires
+## Cambiar la foto de Deyanires
 
-1. Guardar la foto real (vertical, mínimo 720×900) como `public/images/deyanires.webp`.
-2. Guardar un recorte cuadrado pequeño (132×132) como `public/images/deyanires-sm.webp` (se usa en el popup de WhatsApp).
-3. `npm run build`.
+1. Reemplazar `scripts/originales/deyanires.webp` por la foto nueva (cuadrada, rostro centrado).
+2. `node scripts/assets.cjs` (solo recorta a 720×900 y 132×132; no retoca).
+3. Si el rostro queda descentrado, ajustar los números de `extract` en `scripts/assets.cjs`.
+4. `npm run build`.
 
-La persona de la foto provisional es una modelo de banco de imágenes, no es Deyanires.
+No publicar una foto de Deyanires sin que Leo la apruebe primero (el 2026-11-22 hubo que retirar una del sitio y del historial).

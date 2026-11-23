@@ -3,7 +3,7 @@ import { ClockIcon, HeartIcon, ShieldIcon, SparkleIcon } from "@/components/Icon
 import { FinalCta, SectionHead } from "@/components/home/Sections";
 import { PageHero } from "@/components/layout/PageHero";
 import { Reveal } from "@/components/motion/Reveal";
-import { asset, DEMO, type Lang } from "@/config/site";
+import { asset, type Lang } from "@/config/site";
 import { getDict } from "@/lib/i18n";
 import { pageMeta } from "@/lib/seo";
 
@@ -28,7 +28,6 @@ export default async function StoryPage({ params }: Props) {
           <Reveal className="relative mx-auto w-full max-w-sm lg:sticky lg:top-28 lg:max-w-none">
             <div className="absolute -right-4 -top-4 h-full w-full rounded-[2.5rem] rounded-tr-[6rem] bg-teal" aria-hidden="true" />
             <img src={asset("/images/deyanires.webp")} alt={s.photoAlt} width={720} height={900} className="relative aspect-[4/5] w-full rounded-[2.5rem] rounded-tr-[6rem] object-cover" />
-            {DEMO && <span className="absolute left-4 top-4 rounded-full bg-navy/80 px-3 py-1 text-xs text-cream">{s.photoNote}</span>}
           </Reveal>
           <div className="grid gap-6">
             {s.paragraphs.map((p, i) => (

@@ -35,8 +35,6 @@ const photos = {
   "hotel-housekeeping.webp": ["1573014196346-87ac0314faf5.jpg", 1200, 750],
   "office-cleaning.webp": ["1497366754035-f200968a6e72.jpg", 1200, 750],
   "home-cleaning.webp": ["1649083048391-1c9e82472f65.jpg", 1200, 750],
-  "deyanires.webp": ["1586391975091-40b8eb04bfc7.jpg", 720, 900],
-  "deyanires-sm.webp": ["1586391975091-40b8eb04bfc7.jpg", 132, 132],
 };
 
 (async () => {
@@ -49,10 +47,21 @@ const photos = {
   if (src) {
     for (const [out, [file, w, h]] of Object.entries(photos)) {
       await sharp(path.join(src, file))
-        .resize(w, h, { fit: "cover", position: out.startsWith("deyanires") ? "top" : "attention" })
+        .resize(w, h, { fit: "cover", position: "attention" })
         .webp({ quality: 72 })
         .toFile(path.join(pub, "images", out));
     }
+  }
+  // Foto de Deyanires (retrato con traje entregado por Leo): solo se recorta, no se retoca.
+  const real = path.join(__dirname, "originales", "deyanires.webp");
+  if (fs.existsSync(real)) {
+    const { width: W, height: H } = await sharp(real).metadata();
+    const w45 = Math.round(H * 0.8);
+    await sharp(real).extract({ left: Math.round((W - w45) / 2) + Math.round(W * 0.015), top: 0, width: w45, height: H })
+      .resize(720, 900).webp({ quality: 82 }).toFile(path.join(pub, "images/deyanires.webp"));
+    const sq = Math.round(W * 0.6);
+    await sharp(real).extract({ left: Math.round(W * 0.215), top: Math.round(H * 0.07), width: sq, height: sq })
+      .resize(132, 132).webp({ quality: 82 }).toFile(path.join(pub, "images/deyanires-sm.webp"));
   }
   console.log("listo");
 })();

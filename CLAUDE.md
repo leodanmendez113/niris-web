@@ -45,7 +45,7 @@ Antes de explorar, leer `docs/MAPA.md` (dónde vive cada cosa).
 
 **No poner `DEMO = false` hasta reemplazar todos los datos de muestra**: cifras
 (`stats`), reseñas (`reviews`), historia (`story`), horario (`contact.hours`),
-tarifas (`pricing.ts`) y la foto de Deyanires. Publicar reseñas o cifras
+y tarifas (`pricing.ts`). Publicar reseñas o cifras
 inventadas como reales es engañoso para los clientes y Google lo penaliza.
 
 ## Convenciones
@@ -73,7 +73,7 @@ inventadas como reales es engañoso para los clientes y Google lo penaliza.
 
 ## Reglas de trabajo
 
-- Confirmar con Leo antes de cada publicación.
+- Confirmar con Leo antes de cada publicación. Con fotos de personas, mostrarle primero cómo quedan.
 - No inventar datos nuevos fuera del modo DEMO.
 
 ## Pendiente (datos reales que debe entregar Leo o el cliente)
@@ -81,7 +81,7 @@ inventadas como reales es engañoso para los clientes y Google lo penaliza.
 1. Años de experiencia y cifras reales
 2. Reseñas reales
 3. Tarifas reales del cotizador
-4. Historia real de Deyanires y su foto (`docs/IMAGENES.md`)
+4. Historia real de Deyanires (su retrato ya está puesto, ver `docs/IMAGENES.md`)
 5. Horario real
 6. ID de Google Analytics 4
 7. Dominio propio (al tenerlo: quitar `basePath`, cambiar `SITE_URL`, registrar en Google Search Console)
