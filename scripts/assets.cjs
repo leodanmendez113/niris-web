@@ -30,13 +30,13 @@ const og = Buffer.from(`
 
 const photos = {
   // archivo final: [archivo original, ancho, alto]
-  "hero.jpg": ["1629140727571-9b5c6f6267b4.jpg", 900, 1125],
-  "airbnb-cleaning.jpg": ["1596205178128-cde32892fd11.jpg", 1200, 750],
-  "hotel-housekeeping.jpg": ["1573014196346-87ac0314faf5.jpg", 1200, 750],
-  "office-cleaning.jpg": ["1497366754035-f200968a6e72.jpg", 1200, 750],
-  "home-cleaning.jpg": ["1649083048391-1c9e82472f65.jpg", 1200, 750],
-  "deyanires.jpg": ["1586391975091-40b8eb04bfc7.jpg", 720, 900],
-  "deyanires-sm.jpg": ["1586391975091-40b8eb04bfc7.jpg", 132, 132],
+  "hero.webp": ["1629140727571-9b5c6f6267b4.jpg", 800, 1000],
+  "airbnb-cleaning.webp": ["1596205178128-cde32892fd11.jpg", 1200, 750],
+  "hotel-housekeeping.webp": ["1573014196346-87ac0314faf5.jpg", 1200, 750],
+  "office-cleaning.webp": ["1497366754035-f200968a6e72.jpg", 1200, 750],
+  "home-cleaning.webp": ["1649083048391-1c9e82472f65.jpg", 1200, 750],
+  "deyanires.webp": ["1586391975091-40b8eb04bfc7.jpg", 720, 900],
+  "deyanires-sm.webp": ["1586391975091-40b8eb04bfc7.jpg", 132, 132],
 };
 
 (async () => {
@@ -50,7 +50,7 @@ const photos = {
     for (const [out, [file, w, h]] of Object.entries(photos)) {
       await sharp(path.join(src, file))
         .resize(w, h, { fit: "cover", position: out.startsWith("deyanires") ? "top" : "attention" })
-        .jpeg({ quality: 74, mozjpeg: true })
+        .webp({ quality: 72 })
         .toFile(path.join(pub, "images", out));
     }
   }

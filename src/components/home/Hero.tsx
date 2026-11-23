@@ -7,39 +7,27 @@ import { WhatsAppButton } from "@/components/Cta";
 import { asset, site, type Lang } from "@/config/site";
 import { href, type Dict } from "@/lib/i18n";
 
-const ease = [0.22, 1, 0.36, 1] as const;
+const d = (seconds: number) => ({ animationDelay: `${seconds}s` });
 
 function Words({ text, delay, className }: { text: string; delay: number; className?: string }) {
   return (
     <span className={`block ${className ?? ""}`}>
       {text.split(" ").map((w, i) => (
         <span key={i} className="inline-block overflow-hidden pb-[0.12em] align-bottom">
-          <motion.span
-            className="inline-block"
-            initial={{ y: "110%" }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.9, delay: delay + i * 0.09, ease }}
-          >
-            {w}&nbsp;
-          </motion.span>
+          <span className="rise" style={d(delay + i * 0.09)}>{w}&nbsp;</span>
         </span>
       ))}
     </span>
   );
 }
 
-/** Cintas del logo dibujándose en el fondo. */
+/** Cintas del logo en el fondo (animadas con CSS, ver globals.css). */
 function Ribbons() {
-  const draw = (delay: number) => ({
-    initial: { pathLength: 0, opacity: 0 },
-    animate: { pathLength: 1, opacity: 1 },
-    transition: { pathLength: { duration: 2, delay, ease }, opacity: { duration: 0.3, delay } },
-  });
   return (
     <svg viewBox="0 0 1200 800" className="absolute inset-0 h-full w-full" preserveAspectRatio="xMidYMid slice" fill="none" strokeLinecap="round" aria-hidden="true">
-      <motion.path d="M-60 760 L210 180" stroke={site.colors.teal} strokeOpacity="0.16" strokeWidth="150" {...draw(0.1)} />
-      <motion.path d="M250 60 C330 -20 410 40 460 110 L800 600 C860 690 900 720 940 660" stroke="#1c4458" strokeOpacity="0.55" strokeWidth="150" {...draw(0.35)} />
-      <motion.path d="M930 640 L1180 90" stroke={site.colors.teal} strokeOpacity="0.22" strokeWidth="150" {...draw(0.7)} />
+      <path className="ribbon" pathLength={1} style={d(0.1)} d="M-60 760 L210 180" stroke={site.colors.teal} strokeOpacity="0.16" strokeWidth="150" />
+      <path className="ribbon" pathLength={1} style={d(0.35)} d="M250 60 C330 -20 410 40 460 110 L800 600 C860 690 900 720 940 660" stroke="#1c4458" strokeOpacity="0.55" strokeWidth="150" />
+      <path className="ribbon" pathLength={1} style={d(0.7)} d="M930 640 L1180 90" stroke={site.colors.teal} strokeOpacity="0.22" strokeWidth="150" />
     </svg>
   );
 }
@@ -58,64 +46,47 @@ export function Hero({ lang, t }: { lang: Lang; t: Dict }) {
 
       <div className="container-x grid items-center gap-12 pb-20 pt-28 md:pt-36 lg:min-h-[100svh] lg:grid-cols-[1.1fr_0.9fr] lg:pb-24">
         <motion.div style={{ y: textY }}>
-          <motion.p
-            className="eyebrow inline-flex items-center gap-2 rounded-full border border-teal/40 px-3.5 py-1.5"
-            initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease }}
-          >
+          <p className="eyebrow fade-up inline-flex items-center gap-2 rounded-full border border-teal/40 px-3.5 py-1.5">
             <span className="relative flex h-2 w-2">
               <span className="absolute inset-0 animate-ping-slow rounded-full bg-teal" />
               <span className="relative h-2 w-2 rounded-full bg-teal" />
             </span>
             {t.hero.eyebrow}
-          </motion.p>
+          </p>
 
           <h1 className="mt-6 text-[clamp(2.5rem,8vw,4.6rem)] font-extrabold leading-[1.02] tracking-tight">
             <Words text={t.hero.titleA} delay={0.15} />
             <Words text={t.hero.titleB} delay={0.45} className="text-teal" />
           </h1>
 
-          <motion.p
-            className="mt-6 max-w-xl text-lg text-cream/80 md:text-xl"
-            initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.9, ease }}
-          >
+          <p className="fade-up mt-6 max-w-xl text-lg text-cream/80 md:text-xl" style={d(0.7)}>
             {t.hero.subtitle}
-          </motion.p>
+          </p>
 
-          <motion.div
-            className="mt-8 flex flex-col gap-3 sm:flex-row"
-            initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 1.05, ease }}
-          >
+          <div className="fade-up mt-8 flex flex-col gap-3 sm:flex-row" style={d(0.85)}>
             <WhatsAppButton message={t.whatsapp.defaultMessage} label={t.cta.whatsapp} source="hero" />
             <Link href={href(lang, "/quote")} className="btn btn-ghost-light">
               {t.cta.quote} <ArrowIcon className="h-5 w-5" />
             </Link>
-          </motion.div>
+          </div>
 
           <ul className="mt-9 flex flex-wrap gap-x-6 gap-y-2.5">
             {t.hero.badges.map((b, i) => (
-              <motion.li
-                key={b}
-                className="flex items-center gap-2 text-[0.95rem] text-cream/85"
-                initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 1.25 + i * 0.1, duration: 0.5 }}
-              >
+              <li key={b} className="fade-up flex items-center gap-2 text-[0.95rem] text-cream/85" style={d(1 + i * 0.1)}>
                 <span className="grid h-5 w-5 place-items-center rounded-full bg-teal text-navy-deep"><CheckIcon className="h-3.5 w-3.5" /></span>
                 {b}
-              </motion.li>
+              </li>
             ))}
           </ul>
         </motion.div>
 
-        <motion.div
-          className="relative mx-auto w-full max-w-md lg:max-w-none"
-          initial={{ opacity: 0, scale: 0.92, rotate: 3 }} animate={{ opacity: 1, scale: 1, rotate: 0 }}
-          transition={{ duration: 1.1, delay: 0.5, ease }}
-        >
+        <div className="pop-in relative mx-auto w-full max-w-md lg:max-w-none" style={d(0.3)}>
           <div className="relative aspect-[4/5] overflow-hidden rounded-[2.5rem] rounded-tr-[7rem] rounded-bl-[7rem] ring-1 ring-cream/15">
             <motion.img
               style={{ y: imgY, scale: 1.15 }}
-              src={asset("/images/hero.jpg")}
+              src={asset("/images/hero.webp")}
               alt=""
-              width={900} height={1125}
+              width={800} height={1000}
               fetchPriority="high"
               className="h-full w-full object-cover"
             />
@@ -133,7 +104,7 @@ export function Hero({ lang, t }: { lang: Lang; t: Dict }) {
             <p className="font-display text-2xl font-extrabold leading-none">{t.stats.items[0].value}+</p>
             <p className="mt-1 text-sm font-medium">{t.stats.items[0].label}</p>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

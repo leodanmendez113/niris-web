@@ -58,6 +58,11 @@ inventadas como reales es engañoso para los clientes y Google lo penaliza.
 - Imágenes de `/public` se referencian con `asset("/images/x.jpg")` (agrega la
   subcarpeta de GitHub Pages).
 - Toda animación debe respetar "reducir movimiento".
+- Rendimiento (aprendido el 2026-11-22, el inicio pasó de 64 a 100 en Lighthouse
+  móvil local): las entradas del hero van en CSS (`.rise`, `.fade-up`, `.pop-in`,
+  `.ribbon` en `globals.css`), no con Motion, para que el titular se pinte sin
+  esperar al código. No usar `mix-blend-mode` ni texturas con filtro en celular.
+  Fotos en WebP. Medir con `npx lighthouse <url>` después de tocar el inicio.
 - Archivos de 200–400 líneas, organizados por tema.
 
 ## Variables de entorno (las pone el workflow de GitHub)

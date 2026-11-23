@@ -53,7 +53,7 @@ export function WhatsAppWidget({ t }: { t: Dict }) {
           >
             <div className="flex items-center gap-3 bg-navy px-4 py-3.5 text-cream">
               <span className="relative shrink-0">
-                <img src={asset("/images/deyanires-sm.jpg")} alt="" width={44} height={44} className="h-11 w-11 rounded-full object-cover ring-2 ring-teal" />
+                <img src={asset("/images/deyanires-sm.webp")} alt="" width={44} height={44} className="h-11 w-11 rounded-full object-cover ring-2 ring-teal" />
                 <span className="absolute bottom-0 right-0 h-3 w-3 rounded-full bg-whatsapp ring-2 ring-navy" />
               </span>
               <span className="min-w-0 flex-1 leading-tight">
@@ -85,7 +85,7 @@ export function WhatsAppWidget({ t }: { t: Dict }) {
               >
                 <WhatsAppIcon className="h-5 w-5" /> {t.whatsapp.popupButton}
               </a>
-              <button type="button" onClick={() => setOpen(false)} className="min-h-10 text-sm text-navy/60 hover:text-navy">
+              <button type="button" onClick={() => setOpen(false)} className="min-h-10 text-sm text-navy/75 hover:text-navy">
                 {t.whatsapp.popupDismiss}
               </button>
             </div>

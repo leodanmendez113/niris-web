@@ -27,7 +27,7 @@ export default async function StoryPage({ params }: Props) {
         <div className="container-x grid items-start gap-12 lg:grid-cols-[0.8fr_1.2fr]">
           <Reveal className="relative mx-auto w-full max-w-sm lg:sticky lg:top-28 lg:max-w-none">
             <div className="absolute -right-4 -top-4 h-full w-full rounded-[2.5rem] rounded-tr-[6rem] bg-teal" aria-hidden="true" />
-            <img src={asset("/images/deyanires.jpg")} alt={s.photoAlt} width={720} height={900} className="relative aspect-[4/5] w-full rounded-[2.5rem] rounded-tr-[6rem] object-cover" />
+            <img src={asset("/images/deyanires.webp")} alt={s.photoAlt} width={720} height={900} className="relative aspect-[4/5] w-full rounded-[2.5rem] rounded-tr-[6rem] object-cover" />
             {DEMO && <span className="absolute left-4 top-4 rounded-full bg-navy/80 px-3 py-1 text-xs text-cream">{s.photoNote}</span>}
           </Reveal>
           <div className="grid gap-6">

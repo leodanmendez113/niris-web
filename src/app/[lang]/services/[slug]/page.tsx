@@ -50,7 +50,7 @@ export default async function ServicePage({ params }: Props) {
       <section className="py-16 md:py-24">
         <div className="container-x grid items-start gap-12 lg:grid-cols-2">
           <Reveal className="relative">
-            <img src={asset(`/images/${slug}.jpg`)} alt={s.name} width={800} height={500} className="aspect-[4/3] w-full rounded-[2.5rem] rounded-br-[6rem] object-cover" />
+            <img src={asset(`/images/${slug}.webp`)} alt={s.name} width={800} height={500} className="aspect-[4/3] w-full rounded-[2.5rem] rounded-br-[6rem] object-cover" />
             <div className="card absolute -bottom-6 left-4 right-4 p-5 sm:left-auto sm:right-6 sm:max-w-xs">
               <p className="eyebrow">{sp.idealTitle}</p>
               <ul className="mt-3 grid gap-1.5 text-[0.95rem]">

@@ -250,7 +250,7 @@ export function QuoteCalculator({ lang, t }: { lang: Lang; t: Dict }) {
         </div>
         <p className="relative mt-4 hidden text-sm text-cream/60 lg:block">{q.disclaimer}</p>
       </aside>
-      <p className="text-sm text-navy/60 lg:hidden">{q.disclaimer}</p>
+      <p className="text-sm text-navy/75 lg:hidden">{q.disclaimer}</p>
     </div>
   );
 }

@@ -49,7 +49,7 @@ export function ServiceCard({ lang, t, slug, delay = 0 }: P & { slug: ServiceSlu
     <Reveal delay={delay} as="article">
       <Link href={href(lang, `/services/${slug}`)} className="card group relative flex h-full flex-col overflow-hidden transition-transform duration-300 hover:-translate-y-1.5">
         <div className="relative aspect-[16/10] overflow-hidden">
-          <img src={asset(`/images/${slug}.jpg`)} alt="" width={800} height={500} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+          <img src={asset(`/images/${slug}.webp`)} alt="" width={800} height={500} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
           <div className="absolute inset-0 bg-gradient-to-t from-navy/70 to-transparent" />
           <span className="absolute bottom-3 left-4 rounded-full bg-cream/95 px-3 py-1 text-xs font-semibold text-navy">{s.tag}</span>
           <span className="absolute right-4 top-4 grid h-12 w-12 place-items-center rounded-2xl bg-teal text-navy-deep shadow-lg transition-transform duration-500 group-hover:rotate-[-8deg] group-hover:scale-110">
@@ -108,7 +108,7 @@ export function StoryTeaser({ lang, t }: P) {
         <Reveal className="relative mx-auto w-full max-w-sm lg:max-w-none">
           <div className="absolute -left-4 -top-4 h-full w-full rounded-[2.5rem] rounded-tl-[6rem] bg-teal" aria-hidden="true" />
           <img
-            src={asset("/images/deyanires.jpg")} alt={t.story.photoAlt} width={720} height={900} loading="lazy"
+            src={asset("/images/deyanires.webp")} alt={t.story.photoAlt} width={720} height={900} loading="lazy"
             className="relative aspect-[4/5] w-full rounded-[2.5rem] rounded-tl-[6rem] object-cover"
           />
           <div className="absolute -bottom-5 right-4 rounded-2xl bg-navy px-5 py-3 text-cream shadow-xl">
@@ -171,7 +171,7 @@ export function Reviews({ t }: { t: Dict }) {
       <ul className="mt-12 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-6 [scrollbar-width:none] md:mx-auto md:grid md:max-w-[76rem] md:grid-cols-2 md:overflow-visible md:px-8 lg:grid-cols-3 [&::-webkit-scrollbar]:hidden">
         {t.reviews.items.map((r, i) => (
           <Reveal key={r.name} as="li" delay={(i % 3) * 0.08} className="card flex w-[84vw] max-w-sm shrink-0 snap-center flex-col p-6 md:w-auto md:max-w-none">
-            <div className="flex gap-0.5 text-amber-500" aria-label="5 / 5">
+            <div className="flex gap-0.5 text-amber-500" role="img" aria-label="5 / 5">
               {[0, 1, 2, 3, 4].map((k) => <StarIcon key={k} className="h-5 w-5" />)}
             </div>
             <p className="mt-4 flex-1 text-[1.05rem] text-navy/85">“{r.text}”</p>
@@ -179,7 +179,7 @@ export function Reviews({ t }: { t: Dict }) {
               <span className="grid h-11 w-11 place-items-center rounded-full bg-teal-soft font-display font-bold text-teal-dark">{r.name[0]}</span>
               <span className="leading-tight">
                 <span className="block font-display font-semibold">{r.name}</span>
-                <span className="block text-sm text-navy/60">{r.role}</span>
+                <span className="block text-sm text-navy/75">{r.role}</span>
               </span>
             </div>
           </Reveal>
