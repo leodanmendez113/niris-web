@@ -48,7 +48,7 @@ export default async function ContactPage({ params }: Props) {
             <h2 className="mt-4 text-2xl font-bold">{c.areaTitle}</h2>
             <p className="mt-2 flex-1 text-navy/70">{c.areaText}</p>
             <Link href={href(lang, "/areas")} className="mt-4 inline-flex min-h-11 items-center gap-2 font-display font-semibold text-teal-dark">
-              {t.cta.learnMore} <ArrowIcon className="h-5 w-5" />
+              {t.cta.allAreas} <ArrowIcon className="h-5 w-5" />
             </Link>
           </Reveal>
         </div>

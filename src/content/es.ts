@@ -38,6 +38,7 @@ export const es: typeof en = {
     call: "Llámanos",
     quote: "Cotiza al instante",
     learnMore: "Ver más",
+    allAreas: "Ver todas las zonas",
     allServices: "Todos los servicios",
   },
   hero: {

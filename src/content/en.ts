@@ -37,6 +37,7 @@ export const en = {
     call: "Call us",
     quote: "Get an instant estimate",
     learnMore: "Learn more",
+    allAreas: "See all service areas",
     allServices: "All services",
   },
   hero: {

@@ -154,7 +154,7 @@ export function AreasTeaser({ lang, t }: P) {
         </div>
         <Reveal delay={0.2}>
           <Link href={href(lang, "/areas")} className="btn btn-ghost-light mt-8">
-            {t.cta.learnMore} <ArrowIcon className="h-5 w-5" />
+            {t.cta.allAreas} <ArrowIcon className="h-5 w-5" />
           </Link>
         </Reveal>
       </div>
